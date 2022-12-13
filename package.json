@@ -1,0 +1,38 @@
+{
+  "name": "silverstripe-mapfield",
+  "version": "1.0.0",
+  "description": "Silverstripe map field",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BiffBangPow/silverstripe-mapfield.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/BiffBangPow/silverstripe-mapfield/issues"
+  },
+  "homepage": "https://github.com/BiffBangPow/silverstripe-mapfield#readme",
+  "devDependencies": {
+    "@babel/core": "^7.19.3",
+    "@babel/preset-env": "^7.19.3",
+    "autoprefixer": "^10.4.12",
+    "babel-preset-minify": "^0.5.2",
+    "bootstrap": "^5.2.2",
+    "gulp": "^4.0.2",
+    "gulp-autoprefixer": "^6.1.0",
+    "gulp-babel": "^8.0.0",
+    "gulp-clean-css": "^4.3.0",
+    "gulp-mode": "^1.1.0",
+    "gulp-sass": "^5.1.0",
+    "gulp-sourcemaps": "^2.6.5",
+    "gulp-uglify": "^3.0.2",
+    "ol": "^7.1.0",
+    "postcss": "^8.4.17",
+    "sass": "^1.55.0",
+    "vinyl-named": "^1.1.0",
+    "webpack-stream": "^7.0.0"
+  }
+}

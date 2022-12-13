@@ -1,6 +1,6 @@
 {
-  "name": "biffbangpow/silverstripe-elementmodule-template",
-  "description": "A basic skeleton for a Silverstripe 4 elemental module",
+  "name": "biffbangpow/silverstripe-mapfield",
+  "description": "A map-based input field with geolocation",
   "type": "silverstripe-vendormodule",
   "minimum-stability": "dev",
   "license": "proprietary",
@@ -16,13 +16,11 @@
   ],
   "require": {
     "silverstripe/vendor-plugin": "^1.0",
-    "silverstripe/cms": "^4",
-    "dnadesign/silverstripe-elemental": "^4@stable || ^3@stable",
-    "biffbangpow/silverstripe-element-spacing": "^1"
+    "silverstripe/cms": "^4"
   },
   "autoload": {
     "psr-4": {
-      "BiffBangPow\\Element\\": "src/"
+      "BiffBangPow\\Form\\": "src/"
     }
   },
   "extra": {
