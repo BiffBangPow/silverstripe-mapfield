@@ -1,0 +1,20 @@
+---
+Name: bbpmapfield
+Before: '*'
+---
+BiffBangPow\Form\MapField:
+  default_options:
+    show_search_box: true
+    field_names:
+      Latitude: 'Latitude'
+      Longitude: 'Longitude'
+      Zoom: 'Zoom'
+    map:
+      zoom: 5
+    default_field_values:
+      Latitude: 54.00483959
+      Longitude: -2.546615091
+    geokeo_base_url: 'https://geokeo.com/geocode/v1/search.php'
+    geokeo_api_key: null
+    geolocation_fieldname: null
+    geolocation_button_text: 'Locate'
