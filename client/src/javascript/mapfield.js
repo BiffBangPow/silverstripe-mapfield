@@ -17,10 +17,9 @@ function initBBPMapFields() {
     locationInputs.forEach((locationInput) => {
 
         let fieldSettings = JSON.parse(locationInput.dataset.settings);
-        console.log(fieldSettings);
 
         let mapHolder = document.createElement('div');
-        mapHolder.classList.add('bbp-osm-mapholder');
+        mapHolder.classList.add('bbp-mapholder');
         mapHolder.id = locationInput.name + '-map';
 
         locationInput.insertAdjacentElement('afterend', mapHolder);
@@ -41,14 +40,12 @@ function initBBPMapFields() {
         });
 
 
-        if ((fieldSettings.geokeo_api_key !== null) && (fieldSettings.geolocation_fieldname !== null)) {
+        if (fieldSettings.geolocation_fieldname !== null) {
             let locateBtn = document.createElement('button');
-            locateBtn.classList.add('bbp-osm-locatebutton');
+            locateBtn.classList.add('bbp-locatebutton');
             locateBtn.id = locationInput.name + '_locatebutton';
             locateBtn.innerText = fieldSettings.geolocation_button_text;
-            //locateBtn.dataset.glurl = fieldSettings.geokeo_base_url;
-            locateBtn.dataset.glurl = 'http://api.positionstack.com/v1/forward';
-            locateBtn.dataset.api = fieldSettings.geokeo_api_key;
+            locateBtn.dataset.glurl = fieldSettings.admin_url;
             locationInput.insertAdjacentElement('afterend', locateBtn);
 
             let editForm = locationInput.parentElement.closest('form');
@@ -59,9 +56,7 @@ function initBBPMapFields() {
             } else {
                 console.log('No input field found named "' + fieldSettings.geolocation_fieldname + '"');
             }
-
         }
-
 
         /**
          let markers = new Vector({
@@ -85,19 +80,17 @@ function initBBPMapFields() {
 
 function initGeoLocation(button, map, inputField) {
     button.addEventListener('click', () => {
-        let GLURL = new URL(button.dataset.glurl);
-        let addressRaw = inputField.value;
-        GLURL.searchParams.set('access_key', button.dataset.api);
-        GLURL.searchParams.set('query', addressRaw.replace(new RegExp("[\r\n]", "gm"), ","));
-        GLURL.searchParams.set('limit', 1);
+        let GLURL = button.dataset.glurl;
+        let FD = new FormData();
+        FD.append('search', inputField.value);
 
         let XHR = new XMLHttpRequest();
         XHR.addEventListener("load", function (res) {
             processGeoLocationResult(res, map);
         })
-        XHR.open("GET", GLURL.href);
+        XHR.open("POST", GLURL);
         XHR.setRequestHeader('x-requested-with', 'XMLHttpRequest');
-        XHR.send();
+        XHR.send(FD);
     });
 }
 

@@ -340,7 +340,7 @@
   cursor: move;
 }
 
-.bbp-osm-mapholder {
+.bbp-mapholder {
   height: 480px;
   width: 95%;
   max-width: 700px;

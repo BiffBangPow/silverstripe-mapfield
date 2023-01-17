@@ -1,0 +1,11 @@
+---
+Name: myadmin
+After:
+  - '#adminroutes'
+---
+SilverStripe\Control\Director:
+  rules:
+    'bbpmapadmin': 'BiffBangPow\Control\MapFieldController'
+
+BiffBangPow\Control\MapFieldController:
+  url_base: 'bbpmapadmin'
